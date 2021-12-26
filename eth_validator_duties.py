@@ -54,6 +54,7 @@ class Duties:
                 "Unable to look ahead for duties, this is expected for some beacon nodes, searching current epoch")
             print(
                 "Issue for Lighthouse proposer duties here: https://github.com/sigp/lighthouse/issues/2880")
+            print()
             next_epoch_data = []
 
         return self.filter_and_sort_data(

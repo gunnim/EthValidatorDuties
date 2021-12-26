@@ -23,7 +23,7 @@ def main(eth2_api_url):
     epoch = head_slot // eth_validator_duties.Duties.SLOTS_PER_EPOCH
 
     upcoming_proposer = duties.api_get(
-        f"validator/duties/proposer/{epoch + 1}"
+        f"validator/duties/proposer/{epoch}"
     )["data"][-1]["validator_index"]
 
     duties = eth_validator_duties.Duties(
