@@ -8,6 +8,9 @@ python eth_validator_duties.py -h
 
 python eth_validator_duties.py  &lt;space seperated validator indexes&gt;
 
+#### Only search for attestations using specified beacon node
+python eth_validator_duties.py  &lt;space seperated validator indexes&gt; -a -u http://127.0.0.1:5052
+
 ## Show example results
 python test.py
 
