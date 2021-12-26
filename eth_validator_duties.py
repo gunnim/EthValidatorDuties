@@ -44,9 +44,17 @@ class Duties:
         cur_epoch_data = self.api_get(
             f"{url_stem}/{epoch}"
         )["data"]
-        next_epoch_data = self.api_get(
-            f"{url_stem}/{epoch + 1}"
-        )["data"]
+        try:
+            next_epoch_data = self.api_get(
+                f"{url_stem}/{epoch + 1}"
+            )["data"]
+        except KeyError:
+            # https://github.com/ewasm/eth2.0-specs/blob/execution/specs/validator/0_beacon-chain-validator.md#lookahead
+            print(
+                "Unable to look ahead for duties, this is expected for some beacon nodes, searching current epoch")
+            print(
+                "Issue for Lighthouse proposer duties here: https://github.com/sigp/lighthouse/issues/2880")
+            next_epoch_data = []
 
         return self.filter_and_sort_data(
             head_slot,
@@ -60,6 +68,7 @@ class Duties:
             f"{url_stem}/{epoch}",
             json.dumps(self.validators_indices)
         )["data"]
+
         next_epoch_data = self.api_post(
             f"{url_stem}/{epoch + 1}",
             json.dumps(self.validators_indices)
@@ -82,8 +91,8 @@ class Duties:
 
         if self.attestations_only == False:
             print(
-                "Searching for upcoming proposals (This and next epoch "
-                f"+{self.SECONDS_PER_SLOT * self.SLOTS_PER_EPOCH}s)")
+                "Searching for upcoming proposals (This epoch and next, "
+                f"<> {self.SECONDS_PER_SLOT * self.SLOTS_PER_EPOCH}s)")
 
             proposer_duties = self.get_and_merge_data(
                 "validator/duties/proposer",
