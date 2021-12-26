@@ -36,7 +36,7 @@ class Duties:
                         d["validator_index"])
 
         # Filter out historical
-        return {k: v for k, v in sorted(data.items()) if k > head_slot}
+        return {k: v for k, v in sorted(data.items()) if k >= head_slot}
 
     def get_and_merge_data(self, url_stem, head_slot):
         epoch = head_slot // Duties.SLOTS_PER_EPOCH
