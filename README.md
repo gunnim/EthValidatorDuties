@@ -1,8 +1,11 @@
 # eth-validator-duties
+Show upcoming validator duties (attestations/block proposals/sync committee memberships)
 
 ## Usage
 wget https://raw.githubusercontent.com/gunnim/eth-validator-duties/master/eth_validator_duties.py
+
 python eth_validator_duties.py -h
+
 python eth_validator_duties.py  &lt;space seperated validator indexes&gt;
 
 ## Show example results
@@ -15,4 +18,5 @@ https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.m
 
 ### Attestation script originally from pietjepuk
 https://gist.github.com/pietjepuk2/eb021db978ad20bfd94dce485be63150
+
 https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/how-to-find-longest-attestation-slot-gap
