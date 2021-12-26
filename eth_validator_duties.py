@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import json
 import math
 from datetime import datetime, timedelta
@@ -208,7 +209,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Show validator duties (attestation/proposer/committee) of current and next epoch to find largest gap."
+        description="Show upcoming validator duties (attestations/block proposals/sync committee memberships)."
     )
     parser.add_argument(
         "indices",
