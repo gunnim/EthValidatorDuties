@@ -1,8 +1,9 @@
 # eth-validator-duties
 
 ## Usage
+wget https://raw.githubusercontent.com/gunnim/eth-validator-duties/master/eth_validator_duties.py
 python eth_validator_duties.py -h
-python eth_validator_duties.py  &lt;validator indexes&gt;
+python eth_validator_duties.py  &lt;space seperated validator indexes&gt;
 
 ## Show example results
 python test.py
